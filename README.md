@@ -1,2 +1,2 @@
 # Jazz
-A simple scripting language for executing basic algorithms
+#### An (incredibly) upgraded version of Brainfrick
