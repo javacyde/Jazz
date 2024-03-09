@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include "./inc/groups.h"
+#include "inc/groups.h"
 
 using namespace std;
 
@@ -51,9 +51,4 @@ void exec(string code) {
             default: break;
         }
     }
-}
-
-int main() {
-    exec("++++++++++++++++++++++++++++++++++++++++++++++++++++[.-]");
-    return 0;
 }
