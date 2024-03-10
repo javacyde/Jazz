@@ -2,8 +2,23 @@
 #include <string>
 #include <algorithm>
 #include <iterator>
+#include <stdexcept>
 
 using namespace std;
+
+struct Pair {
+    vector<vector<size_t>> vec;
+    vector<size_t> sep(int idx);
+};
+
+vector<size_t> Pair::sep(int idx) {
+    vector<size_t> left, right;
+    for (vector<size_t> p: vec) { 
+        left.push_back(p[0]);
+        right.push_back(p[1]);
+    }
+    return idx ? right : left;
+}
 
 vector<size_t> groups(string code, string sub) {
     string substring = sub;
@@ -25,6 +40,13 @@ int search(vector<size_t> vec, int val) {
     else return -1;
 }
 
+int search(string str, char val, int start=0) {
+    string::iterator it = find(str.begin() + start, str.end(), val);
+
+    if (it != str.end()) return it - str.begin();
+    else return -1;
+}
+
 int searchrev(vector<vector<size_t>> vec, vector<size_t> val) {
     auto it = std::find(vec.rbegin(), vec.rend(), val);
 
@@ -33,6 +55,7 @@ int searchrev(vector<vector<size_t>> vec, vector<size_t> val) {
 }
 
 vector<vector<size_t>> npairs(vector<size_t> left, vector<size_t> right, size_t len) {
+    if (left.size() != right.size()) throw length_error("Unclosed group.");
     vector<size_t> lr;
     vector<vector<size_t>> lt;
     merge(left.begin(), left.end(), right.begin(), right.end(), back_inserter(lr));

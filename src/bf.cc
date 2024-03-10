@@ -9,14 +9,10 @@ using namespace std;
 vector<int> matrix(30000, 0);
 
 void exec(string code) {
-    vector<vector<size_t>> con = npairs(groups(code, "["), groups(code, "]"), code.length());
-    vector<size_t> left, right;
+    Pair con;    
     int cursor = 0;
-
-    for (vector<size_t> p: con) { 
-        left.push_back(p[0]);
-        right.push_back(p[1]);
-    }
+    con.vec = npairs(groups(code, "["), groups(code, "]"), code.length());
+    if (groups(code, "#").size() % 2) throw length_error("Unclosed comment.");
 
     for(int idx = 0; idx < code.length(); idx++) {
         switch (code[idx]) {
@@ -40,13 +36,16 @@ void exec(string code) {
                 break;
             case '[':
                 if (!matrix[cursor]) {
-                    idx = right[search(left, idx)];
+                    idx = con.sep(1)[search(con.sep(0), idx)];
                 }
                 break;
             case ']':
                 if (matrix[cursor]) {
-                    idx = left[search(right, idx)];
+                    idx = con.sep(0)[search(con.sep(1), idx)];
                 }
+                break;
+            case '#':
+                idx = search(code, '#', idx+1);
                 break;
             default: break;
         }
