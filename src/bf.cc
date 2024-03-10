@@ -6,41 +6,61 @@
 
 using namespace std;
 
-vector<int> matrix(30000, 0);
+int** matrix;
+
+void init(int s) {
+    matrix = new int* [s];
+    for (int r = 0; r < s; r++) {
+        matrix[r] = new int[s];
+        for (int c = 0; c < s; c++)
+            matrix[r][c] = 0;
+    }
+}
 
 void exec(string code) {
+    init(256);
     Pair con;    
-    int cursor = 0;
+    int x = 0;
+    int y = 0;
     con.vec = npairs(groups(code, "["), groups(code, "]"), code.length());
     if (groups(code, "#").size() % 2) throw length_error("Unclosed comment.");
 
     for(int idx = 0; idx < code.length(); idx++) {
         switch (code[idx]) {
             case '>':
-                cursor++;
+                x++;
                 break;
             case '<':
-                cursor--;
+                x--;
+                break;
+            case '^':
+                y--;
+                break;
+            case 'v':
+                y++;
                 break;
             case '.':
-                cout << char(matrix[cursor]);
+                cout << char(matrix[x][y]);
+                break;
+            case '!':
+                cout << matrix[x][y];
                 break;
             case ',':
-                cin >> matrix[cursor];
+                cin >> matrix[x][y];
                 break;
             case '+':
-                matrix[cursor]++;
+                matrix[x][y]++;
                 break;
             case '-':
-                matrix[cursor]--;
+                matrix[x][y]--;
                 break;
             case '[':
-                if (!matrix[cursor]) {
+                if (!matrix[x][y]) {
                     idx = con.sep(1)[search(con.sep(0), idx)];
                 }
                 break;
             case ']':
-                if (matrix[cursor]) {
+                if (matrix[x][y]) {
                     idx = con.sep(0)[search(con.sep(1), idx)];
                 }
                 break;
