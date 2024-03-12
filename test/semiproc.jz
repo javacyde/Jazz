@@ -1,2 +1,2 @@
-(+++!);         # Sets procedure slot 0 to increment by 3 and print, and then calls it in its own matrix with its own proc stack #
-++!:            # Increments cell by 2, and prints, then calls procedure in current matrix #
+(+++!);         # Sets procedure slot 0 to increment by 3 and prints, and then calls it in its own matrix with its own proc stack #
+++!:            # Increments cell by 2 and prints, then calls procedure in current matrix #
