@@ -1,0 +1,10 @@
+(++!)           # Sets procedure slot 0 to increment by 2 and print numerical value #
+1(++++++++++.)  # Sets procedure slot 1 to increment by 10 and print char value #
+2(++++!+!)      # Sets procedure slot 2 to increment by 4, print numerical value, then increment by 1 and print numerical value #
+
+2:              # Calls procedure 2 #
+>1:             # Calls procedure 1 (in separate cell) #
+>0:             # Calls procedure 0 (in separate cell) #
+
+3(+++0:3)       # Sets procedure slot 3 to increment by 3, set the slot to 0, call the current procedure, then set the slot back to 3 #
+>::             # Calls procedure 3 twice #
