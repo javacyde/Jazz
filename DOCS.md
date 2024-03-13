@@ -15,6 +15,8 @@
 - `v` Moves pointer down by 1 cell
 - `!` Prints out integer value of current cell, unformatted
 - `#` Start/end comment, interpreter ignores what's between two of these
+- `{00-ff}` Inserts a specific value into current cell (reads hex)
+- `"..."` Assigns characters between the quote marks into the matrix; substitute for long chains of `{..}>{..}>`
 
 **Procedures:**
 - `0-9` Set stack index

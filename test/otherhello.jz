@@ -1,0 +1,3 @@
+>{48}>{65}>{6c}>{6c}>{6f}>{20}>{57}>{6f}>{72}>{6c}>{64}>{21} # Sets Cells 1-12 to char values corresponding to Hello World! #
+[<]>                                                         # Goes back to the beginning of cell 'train' #
+[.>]                                                         # Iterates through all cells and prints their char value #

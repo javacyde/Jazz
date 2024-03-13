@@ -1,4 +1,4 @@
-objects := bin/groups.o bin/jazz.o bin/main.o
+objects := bin/groups.o bin/hex.o bin/jazz.o bin/main.o
 
 bin/main.exe: $(objects)
 	g++ $^ -o $@
