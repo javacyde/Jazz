@@ -23,11 +23,12 @@ int main(int argc, char** argv) {
     }
     fs.close();
 
-    Executor e = Executor();
+    Executor e = Executor(10);
+    Executor::init();
 
     try { 
         e.exec(code);
-    } catch (const exception& e) {
+    } catch (const length_error& e) {
         cerr << e.what(); 
         return 1;
     }
