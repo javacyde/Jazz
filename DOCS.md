@@ -3,20 +3,20 @@
 ### From BF:
 - `>`: Moves pointer to the right by 1 cell
 - `<`: Moves pointer to the left by 1 cell
-- `.`: Prints ASCII char code of current cell value
-- `,`: Takes a single character as input, and assigns its value to the current cell
+- `.`: Print ASCII char corresponding to current cell value (%256, so it wraps)
+- `,`: Take a single character as input, and assign its value to the current cell
 - `+`: Increment current cell value
 - `-`: Decrement current cell value
 - `[`: If current cell is 0, continue reading from corresponding `]`
 - `]`: If current cell is non-zero, jump back to corresponding `[`
 
 ### Jazz Specific:
-- `^`: Moves pointer up by 1 cell
-- `v`: Moves pointer down by 1 cell
-- `!`: Prints out integer value of current cell, unformatted
+- `^`: Move pointer up by 1 cell
+- `v`: Move pointer down by 1 cell
+- `!`: Print out integer value of current cell, unformatted
 - `#`: Start/end comment; interpreter ignores what's between two of these
-- `{00-ff}`: Inserts a specific value into current cell (reads hex)
-- `"..."`: Assigns characters between the quote marks into the matrix; substitute for long chains of `{..}>{..}>`
+- `{00-ff}`: Insert a specific value into current cell (reads hex)
+- `"..."`: Assign characters between the quote marks into the matrix; substitute for long chains of `{..}>{..}>`
 
 ### Stack based Commands:
 - `0-9`: Set stack index  
@@ -32,8 +32,8 @@
 - `~`: Copy current cell to stack index of memory register
 - `$`: Exchange current cell with stack index of memory register
 
-### Directional Commands:   
-Any one of these can be followed by `(^|v|>|<)`, to set the direction of flow, otherwise it defaults to the last pointer movement command.
+### Directional Commands:
+Direction of flow defaults to direction of last pointer movement command. Bear in mind that flow is static, so when it's set in a procedure, it's changed in the main program when the procedure is called, no matter how it's called (making `(>|<|^|v);` a good shorthand for changing the flow without moving the pointer).
 
 - `c`: Copy previous cell to current cell
 - `x`: Exchange current cell with previous cell

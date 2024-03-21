@@ -4,10 +4,10 @@
 #include <vector>
 
 class Executor {
-    public: static int* pm;
+    static int *pm, flow;
     int** matrix;
     std::string* stack;
-    int x, y, sc, idx, flow;
+    int x, y, sc, idx;
 
     public:
         static void init();

@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
     }
     fs.close();
 
-    Executor e = Executor(10);
+    Executor e = Executor();
     Executor::init();
 
     try { 

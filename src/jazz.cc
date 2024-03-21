@@ -7,6 +7,7 @@
 using namespace std;
 
 int* Executor::pm;
+int Executor::flow;
 
 Executor::Executor(int matsize, int stacklength) {
     this -> matrix = new int*[matsize];
@@ -15,7 +16,6 @@ Executor::Executor(int matsize, int stacklength) {
     this -> y = 0;
     this -> sc = 0;
     this -> idx = 0;
-    this -> flow = 0;
 
     for (int i = 0; i < stacklength; i++) this -> stack[i] = "";
         for (int r = 0; r < matsize; r++) {
@@ -26,6 +26,7 @@ Executor::Executor(int matsize, int stacklength) {
 
 void Executor::init() {
     Executor::pm = new int[10];
+    Executor::flow = 0;
     for(int i = 0; i < 10; i++) Executor::pm[i] = 0;
 }
 
@@ -40,10 +41,10 @@ void Executor::exec(string code) {
 
     while(this->idx < code.length()) {
         switch (code[this->idx]) {
-            case '>': (this->x)++; this->flow = 0; break;
-            case '<': (this->x)--; this->flow = 1; break;
-            case '^': (this->y)--; this->flow = 2; break;
-            case 'v': (this->y)++; this->flow = 3; break;
+            case '>': (this->x)++; flow = 0; break;
+            case '<': (this->x)--; flow = 1; break;
+            case '^': (this->y)--; flow = 2; break;
+            case 'v': (this->y)++; flow = 3; break;
             case '.': cout << char(*this->curr()); break;
             case '!': cout << *this->curr(); break;
             case ',': cin >> *this->curr(); break;
@@ -78,7 +79,7 @@ int* Executor::curr() {
 }
 
 int* Executor::prev() {
-    switch(this->flow) {
+    switch(flow) {
         case 0: return &this->matrix[this->x-1][this->y]; break;
         case 1: return &this->matrix[this->x+1][this->y]; break;
         case 2: return &this->matrix[this->x][this->y+1]; break;
@@ -87,7 +88,7 @@ int* Executor::prev() {
 }
 
 int* Executor::next() {
-    switch(this->flow) {
+    switch(flow) {
         case 0: return &this->matrix[this->x+1][this->y]; break;
         case 1: return &this->matrix[this->x-1][this->y]; break;
         case 2: return &this->matrix[this->x][this->y-1]; break;
