@@ -1,0 +1,17 @@
+9({0a}.) # Set proc[9] to newline printer #
+8(>"  "<[<]>[.>])
+0(9$!>{20}.>{3d}.>{20}.<<<.) # Set proc[0] to print table rows #
+
+# Print "ASCII Chart" and horizontal rule #
+2(
+    >"ASCII Chart"<[<]>[.>]{0a}.v
+    >"-----------"<[<]>[.>]{0a}.
+);0
+
+{20}>{ff}+s> [
+    $ <<
+    9~
+    0;+
+    8;0
+    >> $-
+]
