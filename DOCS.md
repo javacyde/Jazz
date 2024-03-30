@@ -26,7 +26,7 @@
 - `)`: Procedure end
 - `:`: Call procedure at current stack index of proc stack
 - `;`: Call procedure at current stack index of proc stack in temporary matrix with permanent memory and direction of flow carried over
-<!-- TODO -->
+
 **Permanent Memory:**
 - `@`: Copy stack index of memory register to current cell
 - `~`: Copy current cell to stack index of memory register
