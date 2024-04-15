@@ -10,5 +10,5 @@ Overview of commands can be found in [DOCS.md](DOCS.md).
 To sum it up:
  - Matrix is 256x256, and it wraps.
  - Both stacks are one dimensional arrays of length 10.
- - Flow and memory stack are static, and are passed through to *all* functions, regardlass of how they are called.
+ - Flow and memory stack are static, and are passed through to *all* functions, regardless of how they are called.
  - No floating points.
