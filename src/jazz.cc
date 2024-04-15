@@ -10,7 +10,8 @@ int* Executor::pm;
 int Executor::flow;
 
 Executor::Executor(int matsize, int stacklength) {
-    this -> matrix = new int*[matsize];
+    this -> matsize = matsize;
+    this -> matrix = new int*[this->matsize];
     this -> stack = new string[stacklength];
     this -> x = 0;
     this -> y = 0;
@@ -18,9 +19,16 @@ Executor::Executor(int matsize, int stacklength) {
     this -> idx = 0;
 
     for (int i = 0; i < stacklength; i++) this -> stack[i] = "";
-        for (int r = 0; r < matsize; r++) {
-        this -> matrix[r] = new int[matsize];
-        for (int c = 0; c < matsize; c++) this -> matrix[r][c] = 0;
+    for (int r = 0; r < this->matsize; r++) {
+        this -> matrix[r] = new int[this->matsize];
+        for (int c = 0; c < this->matsize; c++) this -> matrix[r][c] = 0;
+    }
+}
+
+Executor::~Executor() {
+    delete[] stack;
+    for (int r = 0; r < this->matsize; r++) {
+        delete[] this->matrix[r];
     }
 }
 

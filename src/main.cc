@@ -8,8 +8,7 @@ ifstream fs;
 char b;
 
 int main(int argc, char** argv) {
-    string line;
-    string code;
+    string line, code;
 
     fs.open(argv[1]);
     if (!fs.is_open()) {
