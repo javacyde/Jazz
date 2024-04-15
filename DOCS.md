@@ -1,8 +1,8 @@
 # Commands
 ### A full list of commands in Jazz
 ### From BF:
-- `>`: Moves pointer to the right by 1 cell
-- `<`: Moves pointer to the left by 1 cell
+- `>`: Move pointer to the right by 1 cell
+- `<`: Move pointer to the left by 1 cell
 - `.`: Print ASCII char corresponding to current cell value (%256, so it wraps)
 - `,`: Take a single character as input, and assign its value to the current cell
 - `+`: Increment current cell value
