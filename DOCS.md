@@ -38,8 +38,8 @@ Direction of flow defaults to direction of last pointer movement command. Bear i
 - `c`: Copy previous cell to current cell
 - `x`: Exchange current cell with previous cell
 - `a`: Add previous cell to current and put resulting value in next cell
-- `s`: Subtract previous cell from current and put resulting value in next cell 
+- `s`: Subtract previous cell from current (or current from previous) and put resulting value in next cell 
 - `m`: Multiply previous cell by current cell, and put resulting value in next cell
-- `d`: Integer divide previous cell by current cell, and put resulting value in next cell
+- `d`: Integer divide previous cell by current cell (or vice versa), and put resulting value in next cell
 
-Note that `s` and `d` both automatically run `x` before execution if previous cell is greater than the current cell.
+Note that the result of `s` is always positive and the result of `d` is never 0.
